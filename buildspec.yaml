@@ -1,0 +1,47 @@
+version: 0.2
+
+env:
+  variables:
+    # Adjust these based on your project and ECR setup
+    IMAGE_REPO_NAME: your-app-name
+    IMAGE_TAG: latest  # Or use dynamic tagging based on commit hash
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8  # Adjust Java version if needed
+    commands:
+      - echo Entered install phase...
+      - mvn clean
+
+  pre_build:
+    commands:
+      - echo Entered pre-build phase...
+      - echo Logging in to ECR...
+      # - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+
+  build:
+    commands:
+      - echo Entered build phase...
+      - echo Build started on `date`
+      - mvn package
+      - ls target/
+      # - echo Building Docker image...
+      # - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+      # - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+
+  post_build:
+    commands:
+      - echo Entered post-build phase...
+      - echo Build completed on `date`
+      # - echo Pushing Docker image...
+      # - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+
+artifacts:
+  files:
+    - target/app-0.0.1-SNAPSHOT.jar  # Adjust if building a WAR file
+  discard-paths: yes
+
+cache:
+  paths:
+    - '/root/.m2/**/*'  # Cache Maven dependencies
