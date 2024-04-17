@@ -9,7 +9,7 @@ env:
 phases:
   install:
     runtime-versions:
-      java: corretto8  # Adjust Java version if needed
+      java: openjdk17  # Adjust Java version if needed
     commands:
       - echo Entered install phase...
       - mvn clean
