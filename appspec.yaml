@@ -10,18 +10,18 @@ permissions:
     group: ec2-user
 hooks:
   BeforeInstall:
-    - location: scripts/before_install.sh
+    - location: before_install.sh
       timeout: 30
       runas: root
   AfterInstall:
-    - location: scripts/after_install.sh
+    - location: after_install.sh
       timeout: 30
       runas: root
   ApplicationStart:
-    - location: scripts/application_start.sh
+    - location: application_start.sh
       timeout: 30
       runas: root
   ValidateService:
-    - location: scripts/validate_service.sh
+    - location: validate_service.sh
       timeout: 30
       runas: root
