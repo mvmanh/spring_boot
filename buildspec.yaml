@@ -39,10 +39,12 @@ phases:
       # - echo Pushing Docker image...
       # - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
 
-# artifacts:
-#   files:
-#     - target/app-0.0.1-SNAPSHOT.jar  # Adjust if building a WAR file
-#   discard-paths: yes
+artifacts:
+  files:
+    - target/app-0.0.1-SNAPSHOT.jar  # Adjust if building a WAR file
+    - scripts/*
+    - appspec.yaml
+  discard-paths: yes
 
 cache:
   paths:
