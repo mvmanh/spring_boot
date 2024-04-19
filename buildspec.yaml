@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     # Adjust these based on your project and ECR setup
-    IMAGE_REPO_NAME: your-app-name
+    IMAGE_REPO_NAME: spring_boot
     IMAGE_TAG: latest  # Or use dynamic tagging based on commit hash
 
 phases:
