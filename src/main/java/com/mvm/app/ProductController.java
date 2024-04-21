@@ -15,6 +15,11 @@ public class ProductController {
     // Simulate in-memory database with a static list
     private static List<Product> products = new ArrayList<>();
 
+    @GetMapping("/test")
+    public String test() {
+        return "This is a test";
+    }
+
     // Get all products
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
