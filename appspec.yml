@@ -5,16 +5,25 @@ files:
     destination: /home/ec2-user/spring_boot
     overwrite: true
 file_exists_behavior: OVERWRITE
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
 hooks:
+  BeforeInstall:
+    - location: clear.sh
+      timeout: 300
+      runas: root
   AfterInstall:
     - location: after_install.sh
       timeout: 300
       runas: root
   ApplicationStop:
-    - location: stop.sh
+    - location: server_stop.sh
       timeout: 300
       runas: root
   ApplicationStart:
-    - location: start.sh
+    - location: server_start.sh
       timeout: 300
       runas: root
