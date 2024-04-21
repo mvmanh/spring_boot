@@ -17,7 +17,7 @@ public class ProductController {
 
     @GetMapping("/test")
     public String test() {
-        return "This is a test";
+        return "This is a test - v2";
     }
 
     // Get all products
