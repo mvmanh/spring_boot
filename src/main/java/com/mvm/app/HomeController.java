@@ -8,6 +8,6 @@ public class HomeController {
 
     @GetMapping
     public String index() {
-        return "SpringBoot WebApp có tích hợp Code Build";
+        return "Thử modify source code và test spring pipeline";
     }
 }
