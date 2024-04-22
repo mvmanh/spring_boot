@@ -1,12 +1,5 @@
 version: 0.2
 phases:
-  # install:
-  #   runtime-versions:
-  #     java: corretto17  # Adjust Java version if needed
-  #   commands:
-  #     - echo Entered install phase...
-  #     - mvn clean
-
   pre_build:
     commands:
       - echo Logging in to ECR...
