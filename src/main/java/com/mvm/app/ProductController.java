@@ -17,7 +17,7 @@ public class ProductController {
 
     @GetMapping("/test")
     public String test() {
-        return "Test if code update when push to git";
+        return "Congratulation! The email has been sent";
     }
 
     // Get all products
