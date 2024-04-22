@@ -17,7 +17,7 @@ public class ProductController {
 
     @GetMapping("/test")
     public String test() {
-        return "Welcome to my api v1.2 - Updated from macOS";
+        return "Test if code update when push to git";
     }
 
     // Get all products
